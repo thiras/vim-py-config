@@ -24,11 +24,12 @@ sudo apt-get install -y nodejs
 npm install npm -g
 
 # Install YouCompleteMe Requirements
-apt-get install build-essential cmake python-dev python3-dev
+apt-get install -y build-essential cmake python-dev python3-dev
 
 # Install pip & virtualenv
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
+pip install pip --upgrade
 pip install virtualenv
 
 mkdir -p ~/.vim/bundle

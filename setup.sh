@@ -26,6 +26,10 @@ npm install npm -g
 # Install YouCompleteMe Requirements
 apt-get install build-essential cmake python-dev python3-dev
 
+# Install pip
+curl -O https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+
 mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

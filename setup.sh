@@ -3,7 +3,7 @@
 # Replace vim-tiny with vim-nox
 apt-get remove vim-tiny
 apt-get update
-apt-get install vim
+apt-get install vim-nox
 
 # Install YouCompleteMe Requirements
 apt-get install build-essential cmake python-dev python3-dev

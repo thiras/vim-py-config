@@ -8,15 +8,11 @@ OS=$(lsb_release -si)
 if [ "$OS" = "Ubuntu" ]; then
 	sudo apt-get remove -y vim-tiny
 	sudo apt-get update
-	sudo apt-get install -y vim-nox-py2
-	sudo apt-get install -y nodejs npm
+	sudo apt-get install -y vim-nox-py2 python pyhon-pip
 elif [ "$OS" = "Debian" ]; then
 	apt-get remove -y vim-tiny
 	apt-get update
 	apt-get install -y vim-nox
-	# Install NodeJS
-	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-	apt-get install -y nodejs
 	# Install pip & virtualenv
 	curl -O https://bootstrap.pypa.io/get-pip.py
 	python get-pip.py
@@ -26,6 +22,10 @@ else
 	echo "Cannot detect OS"
 	exit
 fi
+
+# Install NodeJS
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+apt-get install -y nodejs
 
 # Update NPM
 sudo npm install npm -g

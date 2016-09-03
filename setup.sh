@@ -9,30 +9,32 @@ if [ "$OS" = "Ubuntu" ]; then
 	sudo apt-get remove -y vim-tiny
 	sudo apt-get update
 	sudo apt-get install -y vim-nox-py2
+	apt-get install -y nodejs npm
 elif [ "$OS" = "Debian" ]; then
 	apt-get remove -y vim-tiny
 	apt-get update
 	apt-get install -y vim-nox
+	# Install NodeJS
+	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+	apt-get install -y nodejs
+	# Install pip & virtualenv
+	curl -O https://bootstrap.pypa.io/get-pip.py
+	python get-pip.py
+	pip install pip --upgrade
+	pip install virtualenv
 else
 	echo "Cannot detect OS"
 	exit
 fi
 
-# Install NodeJS
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
 # Update NPM
-npm install npm -g
+sudo npm install npm -g
+
+# Update pip
+sudo pip install -U pip
 
 # Install YouCompleteMe Requirements
-apt-get install -y build-essential cmake python-dev python3-dev
-
-# Install pip & virtualenv
-curl -O https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
-pip install pip --upgrade
-pip install virtualenv
+sudo apt-get install -y build-essential cmake python-dev python3-dev
 
 mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

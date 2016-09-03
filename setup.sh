@@ -9,7 +9,7 @@ if [ "$OS" = "Ubuntu" ]; then
 	sudo apt-get remove -y vim-tiny
 	sudo apt-get update
 	sudo apt-get install -y vim-nox-py2
-	apt-get install -y nodejs npm
+	sudo apt-get install -y nodejs npm
 elif [ "$OS" = "Debian" ]; then
 	apt-get remove -y vim-tiny
 	apt-get update

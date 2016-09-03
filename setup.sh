@@ -4,12 +4,14 @@
 OS=$(lsb_release -si)
 
 # Replace vim-tiny with vim-nox
-apt-get remove -y vim-tiny
-apt-get update
 
 if [ "$OS" = "Ubuntu" ]; then
-	apt-get install -y vim-nox-py2
+	sudo apt-get remove -y vim-tiny
+	sudo apt-get update
+	sudo apt-get install -y vim-nox-py2
 elif [ "$OS" = "Debian" ]; then
+	apt-get remove -y vim-tiny
+	apt-get update
 	apt-get install -y vim-nox
 else
 	echo "Cannot detect OS"
